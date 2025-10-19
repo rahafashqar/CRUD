@@ -1,0 +1,46 @@
+@media screen and (max-width: 1690px){
+    .form form, .form .search{
+        width: 40% !important;
+    }
+}
+@media screen and (max-width: 1100px){
+    .form form, .form .search{
+        width: 50% !important;
+    }
+}
+@media screen and (max-width: 860px){
+    .form form, .form .search{
+        width: 70% !important;
+    }
+    .table{
+        width: 95% !important;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 670px){
+    .table th{
+        font-size: 13px;
+        font-weight: 700;
+    }
+}
+@media screen and (max-width: 600px){
+    .table{
+        padding: 20px 0 !important;
+    }
+}
+@media screen and (max-width: 500px){
+    .form form, .form .search{
+        width: 90% !important;
+    }
+}
+@media screen and (max-width: 350px){
+    .table th{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 336px){
+    .form .edits_btns .remove_all_btn, .form .edits_btns .add_btn , .form .edits_btns .reset_btn{
+        font-size: 12px;
+    }
+}
+

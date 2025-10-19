@@ -1,0 +1,15 @@
+.sites_Form, .form .search, .table{
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+    padding: 20px 40px;
+}
+.sites_Form h1{
+    color: rgba(0, 0, 0, 0.493);
+}
+.form-control:focus {
+    border-color: #172a396d;
+    box-shadow: 0 0 0 .1rem #172a396d;
+}
+form .edits_btns {
+    box-shadow: 0px 0px 6px 7px rgba(0, 0, 0, 0.15);
+ }
+
