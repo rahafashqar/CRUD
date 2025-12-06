@@ -30,9 +30,44 @@ document.querySelector(".table_data").innerHTML = result.join(" ");
 })
 
 removeAllBtn.addEventListener("click", ()=>{
+
+    const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-success",
+    cancelButton: "btn btn-danger"
+  },
+  buttonsStyling: false
+});
+swalWithBootstrapButtons.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel!",
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
     sites =[];
     localStorage.removeItem("sites");
     displaySites();
+    swalWithBootstrapButtons.fire({
+      title: "Deleted!",
+      text: "Your data has been deleted.",
+      icon: "success"
+    });
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire({
+      title: "Cancelled",
+      text: "Your data is safe :)",
+      icon: "error"
+    });
+  }
+});
+
 })
 
 const validateSiteName = ()=>{
@@ -119,7 +154,6 @@ siteForm.addEventListener("submit", e=>{
         userName : site[2].value,
         userPass : site[3].value
     }
-    console.log(siteInfo);
     if(currentIndex!=null){
         sites[currentIndex]= siteInfo;
         currentIndex = null;
@@ -131,6 +165,13 @@ siteForm.addEventListener("submit", e=>{
     localStorage.setItem("sites", JSON.stringify(sites));
     siteForm.reset();
     displaySites();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
 })
 
 const displaySites = ()=>{
